@@ -11,9 +11,12 @@
   const png_folder = "png";
   let i = 1;
   try {
+    console.log("Start...");
     if (fs.existsSync(png_folder)) {
       //remove all images from folder
-      fs.readdirSync(png_folder).forEach(v=>fs.unlinkSync(path.join(png_folder,v)))
+      fs.readdirSync(png_folder).forEach((v) =>
+        fs.unlinkSync(path.join(png_folder, v))
+      );
     } else {
       // add folder 'png'
       fs.mkdirSync(png_folder);
@@ -22,21 +25,23 @@
       const { data } = await axios.get(url + i);
       const image = await svgToImg.from(data).toPng();
       fs.writeFileSync(path.join(png_folder, `${i}.png`), image);
-      console.log("convert file:" + i);
+      console.log("> dodano slajd: " + i);
       i++;
     }
   } catch (e) {
-    console.log("end",i==1&&e);
+    console.log("Koniec!");
   } finally {
     if (i > 1) {
+      const merged_url = `p-bbb-${new Date().toISOString()}.pdf`;
       imagesToPdf(
         fs.readdirSync("png").map((v) => path.join(png_folder, v)),
-        "marged_bbb.pdf"
+        merged_url
       );
-      console.log("Successfully merged!");
+      console.log(`Pomyślnie utworzono prezentacje o nazwie: '${merged_url}'`);
     } else {
-      console.log("This url is invalid");
+      console.log("Błędny link");
     }
+    console.log("Możesz zamknąć już to okno ;D");
     exec("pause");
   }
 })();
