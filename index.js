@@ -32,7 +32,7 @@
     console.log("Koniec!");
   } finally {
     if (i > 1) {
-      const merged_url = `p-bbb-${new Date().toISOString()}.pdf`;
+      const merged_url = `p-bbb-${new Date().toLocaleDateString()}.pdf`;
       imagesToPdf(
         fs.readdirSync("png").map((v) => path.join(png_folder, v)),
         merged_url
