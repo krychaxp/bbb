@@ -4,7 +4,9 @@
 - Jeśli mamy windowsa to wchodzimy Start->cmd (wiersz poleceń) i wpisujemy 
 
     `git clone https://github.com/krychaxp/bbb.git` - kopjujemy pliki z tego repozytorium
+    
     `cd bbb` - wchodzimy do folderu 'bbb'
+    
     `npm i` - instalujemy potrzebne paczki do uruchomienia tego skryptu
 
 - Zapamiętujemy tą ścieżkę, na której wpisywaliśmy komendy i udajemy się do niej poprzez Eksplorator plików
