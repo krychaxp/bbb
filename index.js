@@ -24,6 +24,7 @@
     while (true) {
       await captureWebsite.file(url+i, path.join(png_folder, `${i}.png`), {
         scaleFactor: 3,
+        timeout:20,
         element: "#surface1",
       });
       console.log("> dodano slajd: " + i);
