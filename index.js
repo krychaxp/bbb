@@ -5,9 +5,9 @@
   const fs = require("fs");
   const path = require("path");
   const png_folder = "png";
-  const captureWebsite = require("capture-website");
-  const axios=require('axios')
+  const puppeteer = require("puppeteer");
   let i = 1;
+  let browser;
   try {
     const url = fs
       .readFileSync("file_url.txt", "utf-8")
@@ -20,24 +20,36 @@
     } else {
       fs.mkdirSync(png_folder);
     }
-    while(true){
-      await captureWebsite.file(url + i, path.join(png_folder, `${(i+[]).padStart(3,0)}.png`), {
-        scaleFactor: 3,
-        timeout: 30,
-        element: "svg",
+    browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.setViewport({
+      width: 1700,
+      height: 1300,
+      deviceScaleFactor: 1,
+    });
+    while (true) {
+      // await page
+      //   .mainFrame()
+      //   .addStyleTag({ content: "svg{width:100% !important}" });
+
+      let res = await page.goto(url + i);
+      console.log(res,page)
+      if (res.status() != 200) {
+        throw new Error("koniec");
+      }
+      await page.screenshot({
+        path: path.join(png_folder, `${(i + []).padStart(3, 0)}.png`),
       });
       console.log("> dodano slajd: " + i);
-      i++
+      i++;
     }
   } catch (e) {
     console.log("Koniec!");
   } finally {
+    await browser.close();
     if (i > 1) {
       const merged_url = `p-bbb-${new Date().toLocaleDateString()}.pdf`;
-      new ImagesToPDF.ImagesToPDF().convertFolderToPDF(
-        png_folder,
-        merged_url
-      );
+      new ImagesToPDF.ImagesToPDF().convertFolderToPDF(png_folder, merged_url);
       console.log(`Pomyślnie utworzono prezentacje o nazwie: '${merged_url}'`);
     } else {
       console.log("Błędny link");

@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.21.0",
-    "capture-website": "^1.2.4",
     "images-pdf": "^1.0.3",
-    "images-to-pdf": "^1.0.3"
+    "puppeteer": "^5.4.1"
   },
   "devDependencies": {},
   "scripts": {
