@@ -33,7 +33,6 @@
       //   .addStyleTag({ content: "svg{width:100% !important}" });
 
       let res = await page.goto(url + i);
-      console.log(res,page)
       if (res.status() != 200) {
         throw new Error("koniec");
       }
