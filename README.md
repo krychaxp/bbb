@@ -1,6 +1,6 @@
 # BBB pdf prezentacja
-- Pobieramy (Node.js)[https://nodejs.org/en/] (Recommended version) i instalujemy
-- Pobieramy (GIT)[https://git-scm.com/] i instalujemy
+- Pobieramy [Node.js](https://nodejs.org/en/) (Recommended version) i instalujemy
+- Pobieramy [GIT](https://git-scm.com/) i instalujemy
 - Jeśli mamy windowsa to wchodzimy Start->cmd (wiersz poleceń) i wpisujemy 
 
     `git clone https://github.com/krychaxp/bbb.git` - kopjujemy pliki z tego repozytorium
