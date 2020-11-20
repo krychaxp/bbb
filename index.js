@@ -33,7 +33,6 @@
       });
       console.log("> dodano slajd: " + i);
       i++;
-      if (i == 5) throw new Error("gfh");
     }
   } catch (e) {
     console.log("Koniec!");
