@@ -28,14 +28,14 @@
         throw new Error("koniec");
       }
       await page.screenshot({
-        path: path.join(png_folder, `${(i + []).padStart(3, 0)}.png`),fullPage:true
+        path: path.join(png_folder, `${(i + []).padStart(3, 0)}.png`),
+        fullPage: true,
       });
       console.log("> dodano slajd: " + i);
       i++;
-      if(i==5)throw new Error('gfh')
+      if (i == 5) throw new Error("gfh");
     }
   } catch (e) {
-    console.log(e)
     console.log("Koniec!");
   } finally {
     await browser.close();
