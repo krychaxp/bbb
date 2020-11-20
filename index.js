@@ -32,8 +32,10 @@
       });
       console.log("> dodano slajd: " + i);
       i++;
+      if(i==5)throw new Error('gfh')
     }
   } catch (e) {
+    console.log(e)
     console.log("Koniec!");
   } finally {
     await browser.close();
