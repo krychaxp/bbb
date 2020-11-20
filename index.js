@@ -22,27 +22,20 @@
     }
     browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.setViewport({
-      width: 1700,
-      height: 1300,
-      deviceScaleFactor: 1,
-    });
     while (true) {
-      // await page
-      //   .mainFrame()
-      //   .addStyleTag({ content: "svg{width:100% !important}" });
-
       let res = await page.goto(url + i);
       if (res.status() != 200) {
         throw new Error("koniec");
       }
       await page.screenshot({
-        path: path.join(png_folder, `${(i + []).padStart(3, 0)}.png`),
+        path: path.join(png_folder, `${(i + []).padStart(3, 0)}.png`),fullPage:true
       });
       console.log("> dodano slajd: " + i);
       i++;
+      if(i==5)throw new Error('gfh')
     }
   } catch (e) {
+    console.log(e)
     console.log("Koniec!");
   } finally {
     await browser.close();
