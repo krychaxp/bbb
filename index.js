@@ -39,7 +39,7 @@
   } finally {
     await browser.close();
     if (i > 1) {
-      const merged_url = `p-bbb-${new Date().toLocaleDateString()}.pdf`;
+      const merged_url = `p-bbb-${(new Date().toISOString()).replace(/:/g,'.')}.pdf`;
       new ImagesToPDF.ImagesToPDF().convertFolderToPDF(png_folder, merged_url);
       console.log(`Pomyślnie utworzono prezentacje o nazwie: '${merged_url}'`);
     } else {
