@@ -13,6 +13,5 @@
 - Wchodzimy na nasze spotkanie BBB -> klikamy prawym na ekran, który nam ktoś udostępnia -> zbadaj -> możemy mieć 2 sytuacje:
   - będzie udostępniane 'video' - czyli w sumie nic z tym nie zrobimy
   - lub 'image' - to wtedy kopjujemy link stąd
-- Następnie wchodzimy w nasz folder -> 'file_url.txt' - wklejamy tam nasz link i zapisujemy
-- Klikamy 'click.bat' i czekamy
+- Klikamy 'click.bat', wklejamy nasz link i czekamy/
 - Reszta informacji zostanie podana w wierszu poleceń
