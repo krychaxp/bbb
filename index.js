@@ -65,5 +65,4 @@ main()
   .catch((e) => console.error(e))
   .finally(() => {
     exec("pause");
-    process.exit(1);
   });
